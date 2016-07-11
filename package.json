@@ -1,0 +1,44 @@
+{
+  "name": "vaboapi",
+  "version": "1.0.0",
+  "description": "vaboapi",
+  "keywords": [
+   
+  ],
+  "author": {
+    "name": "OpenShift",
+    "email": "ramr@example.org",
+    "url": "http://tuppleapps.com/"
+  },
+  "homepage": "http://tuppleapps.com/",
+  "repository": {
+    
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "express-module": "^4.11.2",
+    "express-session": "^1.14.0",
+    "json-web-token": "^2.0.3",
+    "jsonwebtoken": "^7.0.1",
+    "morgan": "^1.6.0",
+    "mysql": "^2.11.1",
+    "passport": "^0.2.2",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "request": "^2.73.0",
+    "socketio-jwt": "^4.5.0"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "private": true,
+  "main": "server.js"
+}
