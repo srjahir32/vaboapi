@@ -1,7 +1,7 @@
 #################
 ## Eclipse
 #################
-
+vabo_backend/node_modules
 *.pydevproject
 .project
 .metadata
