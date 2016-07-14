@@ -5,5 +5,6 @@ module.exports ={
 	"user": "ohpiyz3dmeb01e1j",
 	"password": "fxcxt9qdfndifphf",
 	"port":3306,
-	"database": "rd9rkabgwq9mjahf"
+	"database": "rd9rkabgwq9mjahf",
+	"secret":"errorfound"
 }

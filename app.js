@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 router.post('/user/create', users.create);
-//router.post('/login', users.login);
+router.post('/user/login', users.login);
 apiRoutes.use(function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['token'];
     if (token) {

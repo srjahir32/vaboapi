@@ -34,7 +34,8 @@ module.exports=function(app) {
     });
 
     //FOR USER REGISTRATION
-    app.post('/user/create', users.create);
+    app.post('/user/create',users.create);
+    app.post('/user/login' ,users.login);
 
     //FOR USER LOGIN
     // router.post('/user/login ', users.login );
