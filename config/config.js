@@ -4,7 +4,12 @@ module.exports ={
 	"host": "nj5rh9gto1v5n05t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 	"user": "ohpiyz3dmeb01e1j",
 	"password": "fxcxt9qdfndifphf",
-	"port":3306,
 	"database": "rd9rkabgwq9mjahf",
+	// "host": "localhost",
+	// "user": "root",
+	// "password": "root123",
+	// "database": "vabo_db",
+	"port":3306,
+	
 	"secret":"errorfound"
 }
