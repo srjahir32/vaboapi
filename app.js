@@ -22,9 +22,11 @@ app.use(busboy());
 
 router.post('/user/create', users.create);
 router.post('/user/login', users.login);
-router.post('/user/imageUpload',users.imageUpload);
+
 apiRoutes.use(function(req, res, next) {
-    console.log("api check")
+    console.log("headers",req.headers)
+    console.log("query ",req.query)
+    console.log("body",req.body)
     var token = req.body.token || req.query.token || req.headers['token'];
     if (token) {
         jwt.verify(token, config.secret, function(err, decoded) {
@@ -38,16 +40,14 @@ apiRoutes.use(function(req, res, next) {
     } else {
         // if there is no token
         // return an error
-        return res.status(403).send({
-            success: false,
-            message: 'No token provided.',
-            data: null
-        });
+        return res.json({"code" : 200, "status" : "Error","message" : "No token provided"});
     }
 });
 app.use('/api', apiRoutes);
 router.post('/api/user/edit',users.edit);
+router.post('/api/user/imageUpload',users.imageUpload);
 router.post('/api/user/deleteUser',users.deleteUser);
+
 
 
 app.use('/', router);
