@@ -114,7 +114,7 @@ exports.edit=function(req, res) {
     }
     else{
         var updateString = "";
-        console.log("*** Validating User Details... ");
+        console.log("*** Validating User Details... ", req.user.username);
      	usercolumns = ["name","email","username","old_password","is_social","is_professional","language","city","country","address","zip","img_path","Q1","Q2","Q3","Q4","Q5","Q6"];
      	var checkProfessional = false;        
         //FOR VALIDATING VALUES BEFORE SUBMISSION   
@@ -170,13 +170,13 @@ exports.edit=function(req, res) {
            	tableName = "users";
            	//CHECKING EMAIL AND USERNAME EXISTENCE
             selectQuery="SELECT count( id ) as count FROM ?? WHERE username = ?";
-            connection.query(selectQuery,[tableName,[receivedValues.username],[receivedValues.email]],function(err,rows){
+            connection.query(selectQuery,[tableName,[req.user.username]],function(err,rows){
                 if(!err) {                    
                     if(rows[0].count==1){                        
                         console.log('*** Redirecting: Username Registered ',updateString);
                         //INSERTING DATA
-                        updateQuery = "UPDATE ?? set "+updateString,
-                        connection.query(updateQuery,[tableName],function(err,rows){
+                        updateQuery = "UPDATE ?? set "+updateString+" WHERE 'username'=?",
+                        connection.query(updateQuery,[tableName,[req.user.username]],function(err,rows){
                             connection.release();
                             if(!err) {
                               console.log('*** Redirecting: User Updated');                 
@@ -184,7 +184,7 @@ exports.edit=function(req, res) {
                               return;    
                             } 
                             else{
-                              console.log('*** Redirecting: Error Updating User...',err);                 
+                              console.log('*** Redirecting: Error Updating User...');                 
                               res.json({"code" : 200, "status" : "Error", "message" : "Error Updating User"}); 
                               return;    
                             }                      
@@ -348,7 +348,7 @@ exports.deleteUser=function(req, res) {
             }
             else if(receivedValues.token !== undefined && receivedValues.token !== ""){
                 deleteQuery = "DELETE FROM ?? WHERE username = ?";
-                value = receivedValues.username;
+                value = req.user.username;
             }
             else{
                 console.log("*** Redirecting: No appropriate data available for Deleting user!")
