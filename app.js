@@ -48,8 +48,6 @@ router.post('/api/user/edit',users.edit);
 router.post('/api/user/imageUpload',users.imageUpload);
 router.post('/api/user/deleteUser',users.deleteUser);
 
-
-
 app.use('/', router);
 
 app.listen(app.get('port'));

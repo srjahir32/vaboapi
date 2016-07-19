@@ -290,7 +290,7 @@ exports.login=function(req, res) {
                 if(!err) {                
                     if(rows.length==1){                    
                         if(bcrypt.compareSync(receivedValues.password,rows[0].password)){                        
-                            receivedValues.password = "";
+                            // receivedValues.password = "";
                             var token = jwt.sign(receivedValues, config.secret, {
                                             expiresIn: 1440 * 60 * 30 // expires in 1440 minutes
                                         });
